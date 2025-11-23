@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker - 메인</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="app-title">Expense Tracker</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="stats.html">Stats</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="calendar-view">
+            <h2>이번 달 가계부</h2>
+            <div class="calendar-navigation">
+                <button id="prev-month">이전</button>
+                <span id="current-month-year"></span>
+                <button id="next-month">다음</button>
+            </div>
+            <div id="calendar-grid">
+                <!-- 달력 날짜들이 JavaScript로 여기에 생성됩니다 -->
+            </div>
+            <p class="calendar-info">날짜를 클릭하면 해당 날짜의 수입/지출을 입력할 수 있습니다.</p>
+        </section>
+    </main>
+
+    <div id="ledger-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-date">2025-11-21 내역</h3>
+                <div class="daily-summary">
+                    수입: <span id="daily-income-sum" class="income">0원</span> /
+                    지출: <span id="daily-expense-sum" class="expense">0원</span> /
+                    순수입: <span id="daily-net-sum">0원</span>
+                </div>
+                <span class="close-button">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="input-area">
+                    <h4>새 항목 입력</h4>
+                    <div class="transaction-type-selector">
+                        <label>
+                            <input type="radio" name="transaction-type" value="income" checked> 수입
+                        </label>
+                        <label>
+                            <input type="radio" name="transaction-type" value="expense"> 지출
+                        </label>
+                    </div>
+                    <select id="transaction-category">
+                        <option value="식비">식비</option>
+                        <option value="교통">교통</option>
+                        <option value="생활">생활</option>
+                        <option value="취미">취미</option>
+                        <option value="기타">기타</option>
+                    </select>
+                    <input type="text" id="transaction-description" placeholder="예: 점심, 버스비, 쇼핑 등">
+                    <input type="number" id="transaction-amount" placeholder="금액 (원 단위)">
+                    <button id="add-transaction-btn">추가하기</button>
+                </div>
+                <div class="list-area">
+                    <h4>내역 리스트</h4>
+                    <ul id="transaction-list">
+                        <!-- 가계부 항목들이 JavaScript로 여기에 추가됩니다 -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Expense Tracker</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
